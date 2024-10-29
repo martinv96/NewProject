@@ -1,0 +1,26 @@
+{% extends 'pages/base.html.twig' %}
+
+{% block title %}Blog - Page d'accueil{% endblock %}
+
+
+{% block body %}
+{% include 'component/nav.html.twig' %} 
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<h1 class="mb-4 mt-4 text-4xl font-extrabold leading-none tracking-tight text-red-800 md:text-5xl lg:text-6xl text-center">Bienvenue sur la page d'accueil !</h1>
+
+<div class="example-wrapper">
+    <h2>Portfolio Symfony ✅</h2>
+
+    Ce controller est généré automatiquement par Symfony.
+    <ul>
+        <li>Le controller dans <code>C:/Developpeur/symfony/NewProject/src/Controller/HomeController.php</code></li>
+        <li>Le template dans <code>C:/Developpeur/symfony/NewProject/templates/pages/home/index.html.twig</code></li>
+        <br>
+        <li>Page d'accueil générée ! 😉</li>
+    </ul>
+</div>
+{% endblock %}
