@@ -1,44 +1,34 @@
 {% extends 'pages/base.html.twig' %}
 
-{% block title %}Mon profile
-{% endblock %}
-
+{% block title %}Mon profile{% endblock %}
 
 {% block body %}
-	{% include 'component/nav.html.twig' %}
+    {% include 'component/nav.html.twig' %}
 
-	<div class="flex ">
-		<div class="text-center bg-gray-800 w-80 h-126 mx-auto p-8 mt-4 rounded-lg">
-			<h1 class=" text-4xl text-white">Mon Profile
-			</h1>
+    <div class="flex ">
+        <div class="text-center bg-gray-800 w-80 h-126 mx-auto p-8 mt-4 rounded-lg">
+            <h1 class="text-4xl text-white">Mon Profile</h1>
 
-			<div class="flex justify-center h-20">
-				<img src="img/profile.jfif" alt="Profile" class="rounded-full w-22 h-22 mx-auto">
-			</div>
-			<h2 class=" text-4xl text-white">Martin Vallée</h2>
-			<h3 class=" text-lg text-white">Développeur web et web mobile junior</h3>
+            <div class="flex justify-center h-20">
+                <img src="img/profile.jfif" alt="Profile" class="rounded-full w-22 h-22 mx-auto">
+            </div>
+            <h2 class="text-4xl text-white">Martin Vallée</h2>
+            <h3 class="text-lg text-white">Développeur web et web mobile junior</h3>
+        </div>
 
-			{# Créer le Hero avec image et présentation.
-								 Créer un Formulaire avec: email, message
-								 Afficher le formulaire dans la page d'Accueil
-								
-								 Créer un Entité et son Repository
-								 Créer un route pour traiter le formulaire:
-								 Enregistrer les données la BD #}
-		</div>
-
-{# les classes viennent de la doc tailwind #}
-		<form action="{{ path('app_contact') }}" method="post" class="max-w-sm mx-auto bg-gray-800 w-80 h-126 p-8 mt-4 mb-3 rounded-lg">
-			<h3 class="text-white text-center">Formulaire de contact</h3>
-			<div class="mt-4">
-				<label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
-				<input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" type="email" id="email" name="email" placeholder="Email">
-			</div>
-			<div class="mt-4">
-				<label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="message">Message</label>
-				<textarea class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" id="message" name="message" placeholder="Message"></textarea>
-			</div>
-			<button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 mt-4 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Envoyer</button>
-		</form>
-	</div>
+        <div class="max-w-sm mx-auto bg-gray-800 w-80 h-126 p-8 mt-4 mb-3 rounded-lg">
+            <h3 class="text-white text-center">Formulaire de contact</h3>
+            {{ form_start(form) }}
+                <div class="mt-4">
+                    {{ form_label(form.email, 'Email', { 'label_attr': {'class': 'block mb-2 text-sm font-medium text-gray-900 dark:text-white'} }) }}
+                    {{ form_widget(form.email, { 'attr': {'class': 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'} }) }}
+                </div>
+                <div class="mt-4">
+                    {{ form_label(form.message, 'Message', { 'label_attr': {'class': 'block mb-2 text-sm font-medium text-gray-900 dark:text-white'} }) }}
+                    {{ form_widget(form.message, { 'attr': {'class': 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'} }) }}
+                </div>
+                <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 mt-4 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Envoyer</button>
+            {{ form_end(form) }}
+        </div>
+    </div>
 {% endblock %}
