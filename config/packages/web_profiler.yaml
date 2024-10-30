@@ -1,17 +1,23 @@
+# config/packages/dev/web_profiler.yaml
 when@dev:
     web_profiler:
-        toolbar: true
-        intercept_redirects: false
+        toolbar: true                    # Active la barre d'outils de profilage
+        intercept_redirects: false       # Ne pas intercepter les redirections
 
     framework:
         profiler:
-            only_exceptions: false
-            collect_serializer_data: true
+            only_exceptions: false       # Collecte toutes les données de profilage, pas seulement les exceptions
+            collect_serializer_data: true # Collecte les données de sérialisation
+            enabled: true                # Active le profiler en développement
 
+
+# config/packages/test/web_profiler.yaml
 when@test:
     web_profiler:
-        toolbar: false
-        intercept_redirects: false
+        toolbar: false                   # Désactive la barre d'outils de profilage dans l'environnement de test
+        intercept_redirects: false       # Ne pas intercepter les redirections
 
     framework:
-        profiler: { collect: false }
+        profiler:
+            collect: false               # Désactive la collecte des données de profilage en test pour économiser des ressources
+            enabled: false                # Désactive le profiler en test pour éviter des surcharges
