@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class CalendarController extends AbstractController
 {
-    #[Route('/calendar', name: 'app_calendar')]
+    #[Route('/calendar', name: 'calendar')]
     public function index(): Response
     {
         return $this->render('pages/calendar/index.html.twig', [

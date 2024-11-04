@@ -10,11 +10,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
-
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class UserController extends AbstractController
 {
-    #[Route('/user', name: 'app_user_index')]
+    #[Route('/user', name: 'user_index')]
     public function index(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $passwordHasher): Response
     {
         $user = new User();
@@ -39,4 +39,34 @@ class UserController extends AbstractController
             'registrationForm' => $form->createView(),
         ]);
     }
+
+    #[Route('/connexion', name: 'connexion')]
+
+    public function connexion(AuthenticationUtils $authenticationUtils): Response
+    {
+        // Récupère l'erreur de connexion, s'il y en a une
+        $error = $authenticationUtils->getLastAuthenticationError();
+
+        // Dernier email entré par l'utilisateur
+        $lastUsername = $authenticationUtils->getLastUsername();
+
+        if (!$error) {
+            $this->addFlash('success', 'Connexion réussie');
+        }
+
+
+        return $this->render('pages/user/connexion.html.twig', [
+            'last_username' => $lastUsername,
+            'error' => $error,
+        ]);
+
+    }
+
+    #[Route('/logout', name: 'deconnexion')]
+
+    public function logout() {
+        
+    }
+    
+
 }

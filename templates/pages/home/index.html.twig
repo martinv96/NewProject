@@ -5,15 +5,12 @@
 
 {% block body %}
 {% include 'component/nav.html.twig' %} 
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<h1 class="mb-4 mt-4 text-4xl font-extrabold leading-none tracking-tight text-red-800 md:text-5xl lg:text-6xl text-center">Bienvenue sur la page d'accueil !</h1>
 
-<div class="example-wrapper">
-    <h2>Portfolio Symfony ✅</h2>
+<h1 class="mb-4 mt-4 text-4xl font-extrabold leading-none tracking-tight text-red-800 md:text-5xl lg:text-6xl text-center">Bienvenue sur NewProject !</h1>
+
+<div class="bg-gray-200 rounded-lg shadow-md p-4 h-full w-fit mx-auto">
+    <h2>Symfony ✅</h2>
 
     Ce controller est généré automatiquement par Symfony.
     <ul>
@@ -22,5 +19,17 @@
         <br>
         <li>Page d'accueil générée ! 😉</li>
     </ul>
+</div>
+
+<div class=" p-4 h-full w-fit mx-auto ">
+    <p class="text-white text-center mb-2">ça sert à rien mais ça fait rien !😉</p>
+    <a href="{{ path('connexion') }}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 mr-2 rounded">Connexion</a>
+    <a href="{{ path('user_index') }}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 mr-2 rounded">Inscription</a>
+    <a href="{{ path('calendar') }}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 mr-2 rounded">Calendrier</a>
+    <a href="{{ path('profile') }}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Mon profil</a>
+</div>
+
+<div>
+<img src="img/god of war.jpg" alt="god of war" class="max-h-80 w-fit mx-auto mb-9 border-2 border-white">
 </div>
 {% endblock %}

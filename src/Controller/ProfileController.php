@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ProfileController extends AbstractController
 {   
-    #[Route('/profile', name: 'app_profile')]
+    #[Route('/profile', name: 'profile')]
     public function index(Request $request, EntityManagerInterface $entityManager): Response
     {
         // Créer une nouvelle instance de Contact
@@ -32,7 +32,7 @@ class ProfileController extends AbstractController
             $this->addFlash('success', 'Votre message a été envoyé avec succès.');
 
             // Rediriger vers la même page
-            return $this->redirectToRoute('app_profile');
+            return $this->redirectToRoute('profile');
         }
 
         // Renvoyer le formulaire à la vue

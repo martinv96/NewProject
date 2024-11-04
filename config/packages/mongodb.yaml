@@ -1,0 +1,21 @@
+doctrine_mongodb:
+    connections:
+        default:
+            server: 'mongodb+srv://admin:LDDT8mpsZ3A1c4Cl@cluster0.coxwiuq.mongodb.net/location'
+            options: {}
+
+    default_database: symfony
+
+    document_managers:
+        default:
+            auto_mapping: true
+            mappings:
+                App:
+                    dir: '%kernel.project_dir%/src/Document'
+                    mapping: true
+                    type: attribute
+                    prefix: 'App\Document'
+                    is_bundle: false
+                    alias: App
+            # Désactiver le logger ici
+            logging: false
